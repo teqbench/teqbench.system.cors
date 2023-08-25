@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ReleaseVersion>5.0.0</ReleaseVersion>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Trading Toolbox</Authors>
+    <Copyright>Copyright 2021 © Trading Toolbox. All rights reserved.</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Description>Cross origin request policy management. To be called as part of (application) startup.</Description>
+    <PackageOutputPath>../NuGet-Packages</PackageOutputPath>
+    <PackageVersion>5.0.0</PackageVersion>
+    <RootNamespace>TradingToolbox.System.Cors</RootNamespace>
+    <AssemblyName>TradingToolbox.System.Cors</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Config\" />
+    <None Remove=".gitignore" />
+    <None Remove="README.md" />
+  </ItemGroup>
+</Project>
