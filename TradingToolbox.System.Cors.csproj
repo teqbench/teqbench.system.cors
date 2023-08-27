@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <ReleaseVersion>5.0.0</ReleaseVersion>
+    <ReleaseVersion>5.0.1</ReleaseVersion>
     <PackOnBuild>true</PackOnBuild>
     <Authors>Trading Toolbox</Authors>
     <Copyright>Copyright 2021 © Trading Toolbox. All rights reserved.</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Description>Cross origin request policy management. To be called as part of (application) startup.</Description>
-    <PackageOutputPath>../NuGet-Packages</PackageOutputPath>
-    <PackageVersion>5.0.0</PackageVersion>
+    <PackageOutputPath>../../NuGet-Packages</PackageOutputPath>
+    <PackageVersion>5.0.1</PackageVersion>
     <RootNamespace>TradingToolbox.System.Cors</RootNamespace>
     <AssemblyName>TradingToolbox.System.Cors</AssemblyName>
   </PropertyGroup>
