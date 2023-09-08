@@ -8,7 +8,7 @@
     <Copyright>Copyright 2021 © Trading Toolbox. All rights reserved.</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Description>Cross origin request policy management. To be called as part of (application) startup.</Description>
-    <PackageOutputPath>../../NuGet-Packages</PackageOutputPath>
+    <PackageOutputPath>./bin/Release</PackageOutputPath>
     <PackageVersion>5.0.1</PackageVersion>
     <RootNamespace>TradingToolbox.System.Cors</RootNamespace>
     <AssemblyName>TradingToolbox.System.Cors</AssemblyName>
