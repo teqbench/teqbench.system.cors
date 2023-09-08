@@ -6,9 +6,9 @@ The Trading Toobox System Cors (Cross Origin Request) policy management library 
 Browser security prevents a web page from making requests to a different domain than the one that served the web page. This restriction is called the same-origin policy. The same-origin policy prevents a malicious site from reading sensitive data from another site. Sometimes, you might want to allow other sites to make cross-origin requests to your app. For further background, see [references](References).
 
 # Contents
-- [Developer Environment Setup](Developer+Environment+Setup)
-- [DevOps - Configurations, Builds and Deployments](DevOps)
-- [References](References)
+- [Developer Environment Setup](#Developer+Environment+Setup)
+- [DevOps - Configurations, Builds and Deployments](#DevOps)
+- [References](#References)
 
 # Developer Environment Setup
 If have not already done so, in Visual Studio, will need to add a package source to reference the Trading Toolbox's GitHub package repository. A personal access token from GitHub is required in the configuration of a new package source in Visual Studio. This section details how to create a GitHub personal access token and how to configure a new package resource using it in Visual Studio.
