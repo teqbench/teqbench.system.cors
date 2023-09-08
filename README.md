@@ -18,7 +18,7 @@ A GitHub personal access token is necessary to to gain access to the Trading Too
 - To create a GitHub personal access token, sign in to GitHub, naviagate to "Develeper Settings" page accessible via your profile settings page.
 - Once on the ""Developer Settings"" page, under the "Personal access tokens" menu option, select "Tokens (classic)" which will navigate to the "Personal access tokens (classic)" page.
 - On the "Personal access tokens (classic)" page, select the option to "Generate new token (classic)" then you should be prompted to enter MFA authentication code in order to access the "New personal access token (classic)" page where a new token can be created.
-- On the "New personal access token (classic)" page, enter use the following settings to create your new GitHub personal access token:
+- On the "New personal access token (classic)" page, enter the following settings to create your new GitHub personal access token:
     - Note: trading-toolbox-packages-token (just a suggested name/description...use whatever you like :))
     - Expiration: select "no expiration"
     - Selected scopes: read:packages
