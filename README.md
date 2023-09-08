@@ -6,7 +6,7 @@ The Trading Toobox System Cors (Cross Origin Request) policy management library 
 Browser security prevents a web page from making requests to a different domain than the one that served the web page. This restriction is called the same-origin policy. The same-origin policy prevents a malicious site from reading sensitive data from another site. Sometimes, you might want to allow other sites to make cross-origin requests to your app. For further background, see [references](References).
 
 # Contents
-- [Developer Environment Setup](Developer Environment Setup)
+- [Developer Environment Setup](Developer+Environment+Setup)
 - [DevOps - Configurations, Builds and Deployments](DevOps)
 - [References](References)
 
@@ -28,13 +28,15 @@ A GitHub personal access token is necessary to to gain access to the Trading Too
 In Visual Studio, open Preferences and navigate to the NuGet Sources pane to add a new package source. Use the following settings for the new source:
 - Name: github
 - Location: https://nuget.pkg.github.com/trading-toolbox/index.json
-- Username: (GitHub username)
-- Passwork: (GitHub personal access token)
+- Username: {GitHub username}
+- Passwork: {GitHub personal access token}
 
 # DevOps
 ## Configurations
-- Release (used for compilation of releases to non-local environments, i.e. production and preview environments)
-- Debug (used local development environments)
+- Release
+    - This configuration is used for compilation of releases to non-debug environments, i.e. production and preview environments.
+- Debug
+    - This configuration is used for compilation of releases to development/debug environments.
 
 ## Branches
 - main (production)
@@ -47,6 +49,8 @@ In Visual Studio, open Preferences and navigate to the NuGet Sources pane to add
 
 ## Deployments
 ### Local
+A local deployment is in effect to a local "package repository" folder. This is useful when want to test changes to a package before pushing to repo.
+
 #### Pre-deployment
 * Create a local artifact folder for NuGet packages deployments/references and add to Visual Studio NuGet Preferences (Tools > Preferences > NuGet > Sources). This is the local NuGet artifact repository where local NuGet packages will be deployed to and referenced locally for local/debug development.
 
