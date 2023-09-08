@@ -21,7 +21,7 @@ A GitHub personal access token is necessary to to gain access to the Trading Too
 - On the "New personal access token (classic)" page, enter use the following settings to create your new GitHub personal access token:
     - Note: trading-toolbox-packages-token (just a suggested name/description...use whatever you like :))
     - Expiration: select "no expiration"
-    - Selected scopes: repo, write:packages, read:packages
+    - Selected scopes: read:packages
 - At this point, click update/save and when the token is created, you will temporarily see the new token, copy it and set aside in a text editor as will use as part of setting up NuGet package source in Visual Studio.
 
 ## Visual Studio Configuration
