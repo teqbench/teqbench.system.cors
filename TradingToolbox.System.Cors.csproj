@@ -1,36 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Authors>Trading Toolbox</Authors>
+		<Company>Trading Toolbox</Company>
+		<Product>Trading Toolbox</Product>
+		<Copyright>Copyright 2023 © Trading Toolbox. All rights reserved.</Copyright>
+    </PropertyGroup>
+	<PropertyGroup>
+		<Major Condition="'$(major)' == ''">0</Major>
+		<Minor Condition="'$(minor)' == ''">0</Minor>
+		<!--
+		As of 9/19/23, decided patch and revision will be the same number.
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ReleaseVersion>5.0.1</ReleaseVersion>
-    <PackOnBuild>true</PackOnBuild>
-    <Authors>Trading Toolbox</Authors>
-    <Copyright>Copyright 2021 © Trading Toolbox. All rights reserved.</Copyright>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <Description>Cross origin request policy management. To be called as part of (application) startup.</Description>
-    <PackageOutputPath>../../NuGet-Packages</PackageOutputPath>
-    <PackageVersion>5.0.1</PackageVersion>
-    <RootNamespace>TradingToolbox.System.Cors</RootNamespace>
-    <AssemblyName>TradingToolbox.System.Cors</AssemblyName>
-  </PropertyGroup>
+		To apply a patch, will have to do so on a specific release which is also the case for a revision.
+		This resolves the gap between semantic versioning and the 4-part version for .NET assemblies. (at least for now)
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType></DebugType>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Config\" />
-    <None Remove=".gitignore" />
-    <None Remove="README.md" />
-  </ItemGroup>
+		Just assign the patch number to the revision property and be done with it as part of the build
+		process (in the csproj file); any supplied revision number is superseded by the patch number.
+
+		Assigning build number and revision per the semantic version spec's metadata is removed via the dotnet pack
+		command, i.e. was stripped from the name of the produced NuGet package; instead of
+		TestLib.2.3.1+123451231.5.nupkg (where build number is 123451231 and revision is 5) ends up
+		as TestLib.2.3.1.nupkg
+		-->
+		<Patch Condition="'$(patch)' == ''">0</Patch>
+		<Revision>$(Patch)</Revision>
+		<Build Condition="'$(build)' == ''">0</Build>
+		<VersionSuffix Condition="'$(Configuration)' == 'Debug'">dev</VersionSuffix>
+	</PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>true</IsPackable>
+		<PackOnBuild>true</PackOnBuild>
+
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<PackageOutputPath>./bin/Release</PackageOutputPath>
+
+		<!-- VersionPrefix will be used by .NET to build the PackageVersion and the InformationalVersion. -->
+		<VersionPrefix>$(Major).$(Minor).$(Patch)</VersionPrefix>
+
+		<!-- Have to explicitly construct the AssemblyVersion and FileVersion in order to have the build and revision version components included. -->
+		<AssemblyVersion>$(Major).$(Minor).$(Build).$(Revision)</AssemblyVersion>
+		<FileVersion>$(Major).$(Minor).$(Build).$(Revision)</FileVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Description>Cross origin request policy management. To be called as part of (application) startup.</Description>
+
+		<RootNamespace>TradingToolbox.System.Cors</RootNamespace>
+		<AssemblyName>TradingToolbox.System.Cors</AssemblyName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>
+		</DebugType>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Config\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Config\" />
+		<None Remove=".gitignore" />
+		<None Remove="README.md" />
+	</ItemGroup>
 </Project>
