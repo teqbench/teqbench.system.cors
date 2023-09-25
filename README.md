@@ -99,7 +99,8 @@ public class Startup
 }
 ```
 
-# DevOps
+# Build & Deploy
+
 ## Configurations
 - Release
     - This configuration is used for compilation of releases to non-debug environments, i.e. production and preview environments.
@@ -113,14 +114,28 @@ public class Startup
 
 ## Builds
 ### Local
+* To build locally use the "Debug" configuration.
+* Local builds can be performed either via Visual Studio (build menu option) or command line (i.e. "dotnet build -c:Debug" from project's root folder), either of which will output an assembly (i.e. a DLL).
+* To create NuGet package locally, this can be done either in Visual Studio or command line.
+  * Visual Studio
+    * Load the project
+    * Right-mouse clicking the project file to bring up the context menu and selecting "Pack {project's name}". 
+  * Command Line
+    * Open terminal.
+    * Navigate to the project's root folder and issue the command "dotnet pack -c:Debug"
+  * Output
+    * Creating a NuGet package either Visual Studio or command line will result in a NuGet package being created in the "{project}/bin/Debug/" folder with the name "{assembly-name}.0.0.0-dev.nupkg". Because used the "Debug" configuration, the NuGet package version created is "0.0.0-dev" to communicate this is a NON-PRODUCTION build and should only be used for developmetn/debug purposes; it should NEVER be uploaded to the Trading Toolbox organization's package registry on GitHub.
+
 ### Cloud
+* Once changes have been merged into the "main" branch of the repo and pushed to the origin, use the [Production Release Workglow](https://github.com/trading-toolbox/production-release-workflow/actions/workflows/production-release-workflow.yml) GitHub Action workglow to build and optionally create a NuGet package. If opt to create a NuGet package, the resulting package will be uploaded to the Trading Toolbox package registry on GitHub.
+* As part of the build options, select what type of update the release is, e.g. "Major" (), "Minor" (), or "Patch/Revision" (). See [Trading Toolbox Org's README](https://github.com/trading-toolbox#version-numbers-in-trading-toolbox) for more information on version numbers in Trading Toolbox.
 
 ## Deployments
-### Local
-A local deployment is in effect to a local "package repository" folder. This is useful when want to test changes to a package before pushing to repo.
 
-#### Pre-deployment
-* Create a local artifact folder for NuGet packages deployments/references and add to Visual Studio NuGet Preferences (Tools > Preferences > NuGet > Sources). This is the local NuGet artifact repository where local NuGet packages will be deployed to and referenced locally for local/debug development.
+### Local
+* A local deployment, in effect, is to a local "package source" folder and can be configured in Visual Studio at "Visual Studio > Preferences > NuGet > Sources". This is useful when want to test changes to a package before pushing code changes to the repo.
+* A locally built NuGet package can be deployed locally by copying the "{assembly-name}.0.0.0-dev.nupkg" to the local NuGet package source (i.e. a local folder) as configured in "Visual Studio > Preferences > NuGet > Sources".
+
 
 #### Deployment
 1. Open Terminal prompt from solution folder.
