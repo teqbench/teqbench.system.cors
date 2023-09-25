@@ -115,9 +115,9 @@ public class Startup
 - dev (developer integration)
 
 ## Local - Build, Pack(age) & Deploy
+* To build/pack locally use the "Debug" configuration.
 
 ### Build
-* To build locally use the "Debug" configuration.
 * To create NuGet build locally, can be done either in Visual Studio or command line.
   * Visual Studio
     * Load the project
@@ -129,7 +129,6 @@ public class Startup
     * Build output for Visual Studio or command line, i.e. assembly, will be found in the "{project}/bin/Debug/" folder.
 
 ### Pack(age)
-* To pack locally use the "Debug" configuration.
 * To create NuGet package locally, can be done either in Visual Studio or command line.
   * Visual Studio
     * Load the project
@@ -140,6 +139,8 @@ public class Startup
   * Pack Output
     * Pack command output for Visual Studio or command line, i.e. NuGet package file ".0.0.0-dev.nupkg", will be found in the "{project}/bin/Debug/" folder.
     * Because used the "Debug" configuration, the NuGet package version created is "0.0.0-dev" to communicate this is a NON-PRODUCTION build/package and should only be used for development/debug purposes; it should NEVER be uploaded to the Trading Toolbox organization's package registry on GitHub.
+
+## Cloud - Build, Pack(age) & Deploy
 
 ### Cloud
 * Cloud builds use the "Release" configuration, and currently, ONLY build from the "main" branch.
