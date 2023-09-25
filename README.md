@@ -3,7 +3,7 @@
 ## Overview
 The Trading Toobox System Cors (Cross Origin Request) policy management library to enable CORS in ASP.NET Core service application(s). To be called as part of (application) startup.
 
-Browser security prevents a web page from making requests to a different domain than the one that served the web page. This restriction is called the same-origin policy. The same-origin policy prevents a malicious site from reading sensitive data from another site. Sometimes, you might want to allow other sites to make cross-origin requests to your app. For further background, see [references](References).
+Browser security prevents a web page from making requests to a different domain than the one that served the web page. This restriction is called the same-origin policy. The same-origin policy prevents a malicious site from reading sensitive data from another site. Sometimes, you might want to allow other sites to make cross-origin requests to your app. For further background, see [references](#References).
 
 # Contents
 - [Developer Environment Setup](#Developer+Environment+Setup)
