@@ -13,17 +13,14 @@ Browser security prevents a web page from making requests to a different domain 
 - [License](#License)
 
 # Developer Environment Setup
-
 > [!NOTE]
 > In order to access the Trading Toolbox's package registry on GitHub, a personal access token needs to be created with the appropriate scopes and Visual Studio configured to use it. See the [Trading Toolbox's Organization README](https://github.com/trading-toolbox) which outlines how to create a PAT and configure Visual Studio to use it.
 
 ## Tooling
-
 - .NET 7.0.x
 - Visual Studio
 
 ## Dependencies
-
 > [!NOTE]
 > Referenced/restored via the project file
 
@@ -31,7 +28,6 @@ Browser security prevents a web page from making requests to a different domain 
 - Microsoft.Extensions.Configuration.Binder, 7.0.4
 
 # Usage
-
 In the .NET service application's appsettings.json, add the following configuration:
 
 ```csharp
@@ -102,7 +98,6 @@ public class Startup
 ```
 
 # DevOps
-
 ## Configurations
 - Release
     - This configuration is used for compilation of releases to non-debug environments, i.e. production and preview environments.
@@ -115,53 +110,40 @@ public class Startup
 - dev (developer integration)
 
 ## Local - Build, Pack(age) & Deploy
-* To build/pack locally use the "Debug" configuration.
+- To build/pack locally use the "Debug" configuration.
 
 ### Build
-* To create NuGet build locally, can be done either in Visual Studio or command line.
-  * Visual Studio
-    * Load the project
-    * Right-mouse clicking the project file to bring up the context menu and selecting "Build {project's name}".
-  * Command Line
-    * Open terminal.
-    * Navigate to the project's root folder and issue the command "dotnet build -c:Debug".
-  * Build Output
-    * Build output for Visual Studio or command line, i.e. assembly, will be found in the "{project}/bin/Debug/" folder.
+- To create NuGet build locally, can be done either in Visual Studio or command line.
+  - Visual Studio
+    - Load the project
+    - Right-mouse clicking the project file to bring up the context menu and selecting "Build {project's name}".
+  - Command Line
+    - Open terminal.
+    - Navigate to the project's root folder and issue the command "dotnet build -c:Debug".
+  - Build Output
+    - Build output for Visual Studio or command line, i.e. assembly, will be found in the "{project}/bin/Debug/" folder.
 
 ### Pack(age)
-* To create NuGet package locally, can be done either in Visual Studio or command line.
-  * Visual Studio
-    * Load the project
-    * Right-mouse clicking the project file to bring up the context menu and selecting "Pack {project's name}". 
-  * Command Line
-    * Open terminal.
-    * Navigate to the project's root folder and issue the command "dotnet pack -c:Debug"
-  * Pack Output
-    * Pack command output for Visual Studio or command line, i.e. NuGet package file ".0.0.0-dev.nupkg", will be found in the "{project}/bin/Debug/" folder.
-    * Because used the "Debug" configuration, the NuGet package version created is "0.0.0-dev" to communicate this is a NON-PRODUCTION build/package and should only be used for development/debug purposes; it should NEVER be uploaded to the Trading Toolbox organization's package registry on GitHub.
+- To create NuGet package locally, can be done either in Visual Studio or command line.
+  - Visual Studio
+    - Load the project
+    - Right-mouse clicking the project file to bring up the context menu and selecting "Pack {project's name}". 
+  - Command Line
+    - Open terminal.
+    - Navigate to the project's root folder and issue the command "dotnet pack -c:Debug"
+  - Pack Output
+    - Pack command output for Visual Studio or command line, i.e. NuGet package file ".0.0.0-dev.nupkg", will be found in the "{project}/bin/Debug/" folder.
+    - Because used the "Debug" configuration, the NuGet package version created is "0.0.0-dev" to communicate this is a NON-PRODUCTION build/package and should only be used for development/debug purposes; it should NEVER be uploaded to the Trading Toolbox organization's package registry on GitHub.
+   
+### Deployment
+- A local deployment, in effect, is to a local "package source" folder and is configured in Visual Studio at "Visual Studio > Preferences > NuGet > Sources". This is useful when want to test changes to a package before pushing code changes to the project's repository.
+- A locally built NuGet package can be deployed locally by copying the "{assembly-name}.0.0.0-dev.nupkg" to the local NuGet package source (i.e. a local folder) as configured in "Visual Studio > Preferences > NuGet > Sources".
 
 ## Cloud - Build, Pack(age) & Deploy
-
-### Cloud
-* Cloud builds use the "Release" configuration, and currently, ONLY build from the "main" branch.
-* Once changes have been merged into the "main" branch of the repo and pushed to the origin, use the [Production Release Workflow](https://github.com/trading-toolbox/production-release-workflow/actions/workflows/production-release-workflow.yml) GitHub Action to build and optionally create a NuGet package. If opt to create a NuGet package, the resulting package will be uploaded to the [Trading Toolbox Package Registry](https://github.com/orgs/trading-toolbox/packages) on GitHub.
-* As part of the [Production Release Workflow](https://github.com/trading-toolbox/production-release-workflow/actions/workflows/production-release-workflow.yml) build options, select what type of update the release is, e.g. "Major (Backwards-incompatible functionality added)", "Minor (Backwards-compatible functionality added)", or "Patch/Revision (Bugfixes/updates for a specific release)". See [Trading Toolbox Org's README](https://github.com/trading-toolbox#version-numbers-in-trading-toolbox) for more information on version numbers in Trading Toolbox.
-
-## Deployments
-
-### Local
-* A local deployment, in effect, is to a local "package source" folder and can be configured in Visual Studio at "Visual Studio > Preferences > NuGet > Sources". This is useful when want to test changes to a package before pushing code changes to the repo.
-* A locally built NuGet package can be deployed locally by copying the "{assembly-name}.0.0.0-dev.nupkg" to the local NuGet package source (i.e. a local folder) as configured in "Visual Studio > Preferences > NuGet > Sources".
-
-
-#### Deployment
-1. Open Terminal prompt from solution folder.
-2. Update package version in solution and project files.
-3. Create local NuGet package (i.e. pack) via the Project's context menu or from a terminal project at the project's root.
-
-### Cloud
-#### Pre-deployment
-#### Deployment
+- Cloud based build/pack use the "Release" configuration, and currently, ONLY build from the "main" branch.
+- Cloud based build/pack/deploy use the [Production Release Workflow](https://github.com/trading-toolbox/production-release-workflow/actions/workflows/production-release-workflow.yml) Trading Toolbox Action to build and optionally pack/deploy a NuGet package for a selected project (i.e. repository).
+- If opt to create a NuGet package, the resulting package will be uploaded to the [Trading Toolbox Package Registry](https://github.com/orgs/trading-toolbox/packages) on GitHub.
+- As part of the [Production Release Workflow](https://github.com/trading-toolbox/production-release-workflow/actions/workflows/production-release-workflow.yml) build options, select what type of update the release is, e.g. "Major (Backwards-incompatible functionality added)", "Minor (Backwards-compatible functionality added)", or "Patch/Revision (Bugfixes/updates for a specific release)". See [Trading Toolbox Org's README](https://github.com/trading-toolbox#version-numbers-in-trading-toolbox) for more information on version numbers in Trading Toolbox.
 
 # References
 - [Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0) - Microsoft
@@ -169,5 +151,4 @@ public class Startup
 - [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) - Wikipedia
 
 # License
-
 &copy; 2021 Trading Toolbox. All source code in this repository is only allowed for use by Trading Toolbox; other usage by internal or external parties requires written consent from Trading Toolobx.
