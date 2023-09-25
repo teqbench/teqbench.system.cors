@@ -29,19 +29,19 @@ Browser security prevents a web page from making requests to a different domain 
 
 In the .NET service application's appsettings.json, add the following configuration:
 
-```
+```csharp
 // This an example section for a developer environment. 
 "corsPolicies": [
-{
-  "policyName": "ApiServiceCorsPolicy",
-  "allowedOrigins": [ "http://localhost:4200" ],
-  "allowCredentials": true
-}
+  {
+    "policyName": "ApiServiceCorsPolicy",
+    "allowedOrigins": [ "http://localhost:4200" ],
+    "allowCredentials": true
+  }
 ]
 ```
 
 In the .NET service applications's startup, 
-```
+```csharp
 /// <summary>
 /// Application's startup routine to be used by the web host when starting this service application.
 /// </summary>
