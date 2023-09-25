@@ -10,6 +10,7 @@ Browser security prevents a web page from making requests to a different domain 
 - [How-to Use](#How-to+Use)
 - [DevOps - Configurations, Builds and Deployments](#DevOps)
 - [References](#References)
+- [License](#License)
 
 # Developer Environment Setup
 
@@ -134,3 +135,7 @@ A local deployment is in effect to a local "package repository" folder. This is 
 - [Enable Cross-Origin Requests (CORS) in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0) - Microsoft
 - [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) - Mozilla
 - [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) - Wikipedia
+
+# License
+
+&copy; 2021 Trading Toolbox. All source code in this repository is only allowed for use by Trading Toolbox; other usage by internal or external parties requires written consent from Trading Toolobx.
