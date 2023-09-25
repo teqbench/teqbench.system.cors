@@ -15,6 +15,16 @@ Browser security prevents a web page from making requests to a different domain 
 > [!NOTE]
 > In order to access the Trading Toolbox's package registry on GitHub, a personal access token needs to be created with the appropriate scopes and Visual Studio configured to use it. See the [Trading Toolbox's Organization README](https://github.com/trading-toolbox) which outlines how to create a PAT and configure Visual Studio to use it.
 
+## Tooling
+
+- .NET 7.0.x
+- Visual Studio
+
+## Dependencies
+
+- Microsoft.AspNetCore.Cors, 2.2.0
+- Microsoft.Extensions.Configuration.Binder, 7.0.4
+
 # DevOps
 ## Configurations
 - Release
