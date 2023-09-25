@@ -28,6 +28,12 @@ Browser security prevents a web page from making requests to a different domain 
 - Microsoft.Extensions.Configuration.Binder, 7.0.4
 
 # Usage
+## Add NuGet Package To Project
+```
+dotnet add package TradingToolbox.System.Cors
+```
+
+## Update Source Code
 In the .NET service application's appsettings.json, add the following configuration:
 
 ```csharp
