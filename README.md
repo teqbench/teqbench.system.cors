@@ -1,7 +1,7 @@
 # Trading Toolbox - System Cors
 
 ## Overview
-The Trading Toobox System Cors (Cross Origin Request) policy management library to enable CORS in ASP.NET Core service application(s). To be called as part of (application) startup.
+The Trading Toobox System Cors (Cross Origin Request) policy management library (NuGet package) to enable CORS in ASP.NET Core service application(s). To be called as part of (application) startup.
 
 Browser security prevents a web page from making requests to a different domain than the one that served the web page. This restriction is called the same-origin policy. The same-origin policy prevents a malicious site from reading sensitive data from another site. Sometimes, you might want to allow other sites to make cross-origin requests to your app. For further background, see [references](#References).
 
@@ -24,6 +24,75 @@ Browser security prevents a web page from making requests to a different domain 
 
 - Microsoft.AspNetCore.Cors, 2.2.0
 - Microsoft.Extensions.Configuration.Binder, 7.0.4
+
+# How-to Use
+
+In the .NET service application's appsettings.json, add the following configuration:
+
+```
+// This an example section for a developer environment. 
+"corsPolicies": [
+{
+  "policyName": "ApiServiceCorsPolicy",
+  "allowedOrigins": [ "http://localhost:4200" ],
+  "allowCredentials": true
+}
+]
+```
+
+In the .NET service applications's startup, 
+```
+/// <summary>
+/// Application's startup routine to be used by the web host when starting this service application.
+/// </summary>
+public class Startup
+{
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Startup"/> class.
+    /// </summary>
+    /// <param name="configuration">The configuration.</param>
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+        this.CorsPolicyManager = new PolicyManager(configuration, "corsPolicies");
+    }
+
+    /// <summary>
+    /// Gets the CORS policy manager.
+    /// </summary>
+    /// <value>
+    /// The CORS policy manager.
+    /// </value>
+    private PolicyManager CorsPolicyManager { get; }
+
+    #region Public Methods
+    /// <summary>
+    /// This method gets called by the runtime. Use this method to add services to the container.
+    /// </summary>
+    /// <param name="services">The services collection to add service configurations to.</param>
+    public void ConfigureServices(IServiceCollection services)
+    {
+        this.CorsPolicyManager.BuildPolicies(services);
+
+        // Add other startup configuration below appropriate to this method.
+    }
+
+    /// <summary>
+    /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    /// </summary>
+    /// <param name="app">The application request pipeline to configure.</param>
+    /// <param name="env">Web hosting environment information.</param>
+    /// <param name="lifetime">The application's lifetime event notifier.</param>
+    /// <param name="mongoDbService">The mongo database service.</param>
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime lifetime, nsPositionModeling.IMongoDbService mongoDbService)
+    {
+        // Add other startup configuration before/after call to CorsPolicyManager.UsePolicies appropriate to this method.
+
+        this.CorsPolicyManager.UsePolicies(app);
+    }
+    #endregion
+}
+```
 
 # DevOps
 ## Configurations
