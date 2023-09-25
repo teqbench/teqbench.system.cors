@@ -47,7 +47,7 @@ In the .NET service application's appsettings.json, add the following configurat
 ]
 ```
 
-In the .NET service applications's startup class:
+In the .NET service applications's startup class, add the following CORS support:
 ```csharp
 /// <summary>
 /// Application's startup routine to be used by the web host when starting this service application.
