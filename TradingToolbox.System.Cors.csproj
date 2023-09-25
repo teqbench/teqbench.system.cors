@@ -36,7 +36,7 @@
 		<PackOnBuild>true</PackOnBuild>
 
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<PackageOutputPath>./bin/Release</PackageOutputPath>
+		<PackageOutputPath>./bin/$(Configuration)</PackageOutputPath>
 
 		<!-- VersionPrefix will be used by .NET to build the PackageVersion and the InformationalVersion. -->
 		<VersionPrefix>$(Major).$(Minor).$(Patch)</VersionPrefix>
