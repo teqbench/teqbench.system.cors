@@ -24,7 +24,7 @@ Browser security prevents a web page from making requests to a different domain 
 ## Dependencies
 
 > [!NOTE]
-> Referenced/restored from the project file
+> Referenced/restored via the project file
 
 - Microsoft.AspNetCore.Cors, 2.2.0
 - Microsoft.Extensions.Configuration.Binder, 7.0.4
