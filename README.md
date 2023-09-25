@@ -7,7 +7,7 @@ Browser security prevents a web page from making requests to a different domain 
 
 # Contents
 - [Developer Environment Setup](#Developer+Environment+Setup)
-- [How-to Use](#How-to+Use)
+- [Usage](#Usage)
 - [DevOps - Configurations, Builds and Deployments](#DevOps)
 - [References](#References)
 - [License](#License)
@@ -30,7 +30,7 @@ Browser security prevents a web page from making requests to a different domain 
 - Microsoft.AspNetCore.Cors, 2.2.0
 - Microsoft.Extensions.Configuration.Binder, 7.0.4
 
-# How-to Use
+# Usage
 
 In the .NET service application's appsettings.json, add the following configuration:
 
