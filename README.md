@@ -129,6 +129,7 @@ public class Startup
     * Build output for Visual Studio or command line, i.e. assembly, will be found in the "{project}/bin/Debug/" folder.
 
 ### Pack(age)
+* To pack locally use the "Debug" configuration.
 * To create NuGet package locally, can be done either in Visual Studio or command line.
   * Visual Studio
     * Load the project
@@ -141,7 +142,7 @@ public class Startup
     * Because used the "Debug" configuration, the NuGet package version created is "0.0.0-dev" to communicate this is a NON-PRODUCTION build/package and should only be used for development/debug purposes; it should NEVER be uploaded to the Trading Toolbox organization's package registry on GitHub.
 
 ### Cloud
-* Cloud buids user the "Release" configuration, and currently, ONLY build from the "main" branch.
+* Cloud builds use the "Release" configuration, and currently, ONLY build from the "main" branch.
 * Once changes have been merged into the "main" branch of the repo and pushed to the origin, use the [Production Release Workflow](https://github.com/trading-toolbox/production-release-workflow/actions/workflows/production-release-workflow.yml) GitHub Action to build and optionally create a NuGet package. If opt to create a NuGet package, the resulting package will be uploaded to the [Trading Toolbox Package Registry](https://github.com/orgs/trading-toolbox/packages) on GitHub.
 * As part of the [Production Release Workflow](https://github.com/trading-toolbox/production-release-workflow/actions/workflows/production-release-workflow.yml) build options, select what type of update the release is, e.g. "Major (Backwards-incompatible functionality added)", "Minor (Backwards-compatible functionality added)", or "Patch/Revision (Bugfixes/updates for a specific release)". See [Trading Toolbox Org's README](https://github.com/trading-toolbox#version-numbers-in-trading-toolbox) for more information on version numbers in Trading Toolbox.
 
