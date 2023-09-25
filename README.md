@@ -7,6 +7,7 @@ Browser security prevents a web page from making requests to a different domain 
 
 # Contents
 - [Developer Environment Setup](#Developer+Environment+Setup)
+- [How-to Use](#How-to+Use)
 - [DevOps - Configurations, Builds and Deployments](#DevOps)
 - [References](#References)
 
@@ -21,6 +22,9 @@ Browser security prevents a web page from making requests to a different domain 
 - Visual Studio
 
 ## Dependencies
+
+> [!NOTE]
+> Referenced/restored from the project file
 
 - Microsoft.AspNetCore.Cors, 2.2.0
 - Microsoft.Extensions.Configuration.Binder, 7.0.4
