@@ -34,6 +34,8 @@ dotnet add package TradingToolbox.System.Cors
 ```
 
 ## Update Source Code
+For complete usage, see TradingToolbox.Applications.Trading.Modeler.ServiceApp
+
 In the .NET service application's appsettings.json, add the following configuration:
 
 ```csharp
