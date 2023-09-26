@@ -1,4 +1,4 @@
-# Trading Toolbox - System Cors
+# System Cors
 
 ## Overview
 The Trading Toobox System Cors (Cross Origin Request) policy management library (NuGet package) to enable CORS in ASP.NET Core service application(s). To be called as part of (application) startup.
@@ -34,11 +34,12 @@ dotnet add package TradingToolbox.System.Cors
 ```
 
 ## Update Source Code
-For complete usage, see TradingToolbox.Applications.Trading.Modeler.ServiceApp
+> [!NOTE]
+> For complete usage, see [TradingToolbox.Applications.Trading.Modeler.ServiceApp](https://github.com/trading-toolbox/tradingtoolbox.applications.trading.modeler.serviceapp)
 
 In the .NET service application's appsettings.json, add the following configuration:
 
-```csharp
+```json
 // This an example section for a developer environment. 
 "corsPolicies": [
   {
