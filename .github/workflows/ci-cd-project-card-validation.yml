@@ -8,22 +8,22 @@ on:
     # See https://frontside.com/blog/2020-05-26-github-actions-pull_request/ for more details on the specific event triggers for a pull request.
     # The 'closed' trigger is handled by the ci-cd.yml workflow.
     types: [opened,edited,reopened,synchronize,converted_to_draft,ready_for_review]
-    branches: [main]
+    branches:
+      - main
   issues:
-    branches: [main]
-
+    branches:
+      - main
+    
+# The `concurrency` key ensures that only a single workflow in the same concurrency group will run at the same time. 
+# For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
+# `concurrency.group` generates a concurrency group name from the workflow name and repository name. 
+# The `||` operator is used to define fallback values.
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.repository || github.head_ref || github.ref }}'
+  
 jobs:
-  init:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait for prior instances of the workflow to finish
-        uses: softprops/turnstyle@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   common_project_card_validation:
     name: Invoke Common Project Card Validation
-    needs: init   
     uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-project-card-validation.yml@main
     secrets: inherit
     with:
