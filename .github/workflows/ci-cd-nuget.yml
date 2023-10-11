@@ -1,4 +1,4 @@
-name: Project Create/Deploy NuGet Package
+name: Project Create/Deploy NuGet Package Workflow
 # TeqBench - CI/CD - Create a NuGet package and (optionally) deploy to the organization's package registry on GitHub.
 # Run the project's CI/CD to build/deploy NuGet package only when have merged PR to main branch.
 
