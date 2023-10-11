@@ -1,0 +1,35 @@
+name: Project Card Validation Workflow
+# TeqBench - CI/CD - Project card validation for required (custom) settings/variables.
+# Run the project's CI/CD to build/deploy NuGet package only when have merged PR to main branch.
+  
+on:
+  pull_request:
+    # Handle the pull_request event triggers here, except 'closed' in order to always have the 'Mergable' and 'Release Type' evaluations up to date. 
+    # See https://frontside.com/blog/2020-05-26-github-actions-pull_request/ for more details on the specific event triggers for a pull request.
+    # The 'closed' trigger is handled by the ci-cd.yml workflow.
+    types: [opened,edited,reopened,synchronize,converted_to_draft,ready_for_review]
+    branches: [main]
+  issues:
+    branches: [main]
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for prior instances of the workflow to finish
+        uses: softprops/turnstyle@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  common_project_card_validation:
+    name: Invoke Common Project Card Validation
+    needs: init   
+    uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-project-card-validation.yml@main
+    secrets: inherit
+    with:
+     repository: ${{ github.repository }}
+     repository_owner: ${{ github.repository_owner }}
+     repository_name: ${{ github.event.repository.name }}
+     resource_url: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+     event_number: ${{ github.event.issue.number || github.event.pull_request.number }}
+     project_number: 7
