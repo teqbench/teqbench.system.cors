@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using TradingToolbox.System.Cors.Config;
+using TeqBench.System.Cors.Config;
 
-namespace TradingToolbox.System.Cors
+namespace TeqBench.System.Cors
 {
     /// <summary>
     /// CORS policy manager responsible for loading CORS configuration values from application configuration file to allow cross domain requests. To be
@@ -35,7 +35,7 @@ namespace TradingToolbox.System.Cors
                 throw new ArgumentException("Invalid 'sectionName' argument; cannot be null, empty or whitespace.");
             }
 
-            this.ConfiguredPolicies = configuration.GetSection(sectionKey).Get<List<CorsPolicyConfig>>();
+            this.ConfiguredPolicies = configuration.GetSection(sectionKey).Get<List<CorsPolicyConfig>>() ?? new List<CorsPolicyConfig>();
         }
         #endregion
 
