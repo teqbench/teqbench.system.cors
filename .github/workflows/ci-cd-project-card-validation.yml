@@ -11,22 +11,17 @@ on:
     branches: [main]
   issues:
     branches: [main]
-
-concurency:
-  group: concurency-project-card-validation-workflow-${{ github.repository }}
-
+    
+# The `concurrency` key ensures that only a single workflow in the same concurrency group will run at the same time. 
+# For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
+# `concurrency.group` generates a concurrency group name from the workflow name and repository name. 
+# The `||` operator is used to define fallback values.
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.repository || github.head_ref || github.ref }}'
+  
 jobs:
-  # init:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Wait for prior instances of the workflow to finish
-  #       uses: softprops/turnstyle@v1
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   common_project_card_validation:
     name: Invoke Common Project Card Validation
-    needs: init   
     uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-project-card-validation.yml@main
     secrets: inherit
     with:
