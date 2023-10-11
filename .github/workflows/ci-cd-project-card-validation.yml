@@ -27,9 +27,9 @@ jobs:
     uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-project-card-validation.yml@main
     secrets: inherit
     with:
-     repository: ${{ github.repository }}
-     repository_owner: ${{ github.repository_owner }}
-     repository_name: ${{ github.event.repository.name }}
-     resource_url: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+     repository: "${{ github.repository }}"
+     repository_owner: "${{ github.repository_owner }}"
+     repository_name: "${{ github.event.repository.name }}"
+     resource_url: "${{ github.event.issue.html_url || github.event.pull_request.html_url }}"
      event_number: ${{ github.event.issue.number || github.event.pull_request.number }}
      project_number: 7
