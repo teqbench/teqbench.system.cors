@@ -12,14 +12,17 @@ on:
   issues:
     branches: [main]
 
+concurency:
+  group: concurency-project-card-validation-workflow-${{ github.repository }}
+
 jobs:
-  init:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait for prior instances of the workflow to finish
-        uses: softprops/turnstyle@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # init:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Wait for prior instances of the workflow to finish
+  #       uses: softprops/turnstyle@v1
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   common_project_card_validation:
     name: Invoke Common Project Card Validation
