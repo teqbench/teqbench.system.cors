@@ -5,7 +5,8 @@ name: Project Create/Deploy NuGet Package Workflow
 on:
   pull_request:    
     types: [closed]
-    branches: [main]
+    branches:
+      - main
 
 # The `concurrency` key ensures that only a single workflow in the same concurrency group will run at the same time. 
 # For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
