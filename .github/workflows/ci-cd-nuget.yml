@@ -6,19 +6,17 @@ on:
   pull_request:    
     types: [closed]
     branches: [main]
+
+# The `concurrency` key ensures that only a single workflow in the same concurrency group will run at the same time. 
+# For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
+# `concurrency.group` generates a concurrency group name from the workflow name and repository name. 
+# The `||` operator is used to define fallback values.
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.repository || github.head_ref || github.ref }}'
   
 jobs:
-  init:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait for prior instances of the workflow to finish
-        uses: softprops/turnstyle@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
   common_ci_cd_dotnet_nuget_workflow:
     name: Invoke Common .NET NuGet Package Workflow
-    needs: init
     uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-dotnet-nuget.yml@main
     secrets: inherit
     with:
