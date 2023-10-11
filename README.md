@@ -113,10 +113,13 @@ public class Startup
 - Debug
     - This configuration is used for compilation of releases to development/debug environments.
 
+## Branching Strategy
+- GitHub Flow
+  - [Introduction From GitHub](https://docs.github.com/en/get-started/quickstart/github-flow)
+  - [Indepth Overview](https://githubflow.github.io)
+
 ## Branches
 - main (production)
-- staging (production preview)
-- dev (developer integration)
 
 ## Local - Build, Pack(age) & Deploy
 - To build/pack locally use the "Debug" configuration.
