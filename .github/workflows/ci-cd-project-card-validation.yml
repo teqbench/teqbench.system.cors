@@ -8,9 +8,11 @@ on:
     # See https://frontside.com/blog/2020-05-26-github-actions-pull_request/ for more details on the specific event triggers for a pull request.
     # The 'closed' trigger is handled by the ci-cd.yml workflow.
     types: [opened,edited,reopened,synchronize,converted_to_draft,ready_for_review]
-    branches: [main]
+    branches:
+      - main
   issues:
-    branches: [main]
+    branches:
+      - main
     
 # The `concurrency` key ensures that only a single workflow in the same concurrency group will run at the same time. 
 # For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
