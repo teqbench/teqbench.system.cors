@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace TradingToolbox.System.Cors.Config
+namespace TeqBench.System.Cors.Config
 {
     /// <summary>
     /// Implementation of CORS policy configuration policy.
     /// </summary>
-    /// <seealso cref="TradingToolbox.System.Cors.Contracts.Config.ICorsPolicyConfig" />
+    /// <seealso cref="TeqBench.System.Cors.Contracts.Config.ICorsPolicyConfig" />
     internal class CorsPolicyConfig : ICorsPolicyConfig
     {
         #region Member Variables
@@ -21,7 +21,7 @@ namespace TradingToolbox.System.Cors.Config
         /// <value>
         /// The name of the policy.
         /// </value>
-        public string PolicyName { get; set; }
+        public required string PolicyName { get; set; }
 
         /// <summary>
         /// Gets or sets the list of allowed origins.
@@ -29,7 +29,7 @@ namespace TradingToolbox.System.Cors.Config
         /// <value>
         /// The list of allowed allowed origins.
         /// </value>
-        public List<string> AllowedOrigins
+        public required List<string> AllowedOrigins
         {
             get
             {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TradingToolbox.System.Cors.Config
+namespace TeqBench.System.Cors.Config
 {
     /// <summary>
     /// Interface defining CORS policy configuration.
