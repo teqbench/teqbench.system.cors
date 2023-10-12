@@ -16,9 +16,22 @@ concurrency:
   group: '${{ github.workflow }} @ ${{ github.repository || github.head_ref || github.ref }}'
   
 jobs:
-  common_ci_cd_dotnet_nuget_workflow:
+  common_ci_cd_create_release_workflow:
+    name: Invoke Common Create Release Workflow
+    uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-create-release.yml@main
+    secrets: inherit
+    with:
+     repository: ${{ github.repository }}
+     repository_owner: ${{ github.repository_owner }}
+     repository_name: ${{ github.event.repository.name }}
+     resource_url: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+     event_number: ${{ github.event.issue.number || github.event.pull_request.number }}
+     project_number: 2
+
+  common_ci_cd_create_nuget_package_workflow:
     name: Invoke Common .NET NuGet Package Workflow
-    uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-dotnet-nuget.yml@main
+    needs: common_ci_cd_create_release_workflow
+    uses: teqbench/ci-cd-workflows/.github/workflows/ci-cd-create-nuget-package.yml@main
     secrets: inherit
     with:
      repository: ${{ github.repository }}
@@ -27,4 +40,10 @@ jobs:
      resource_url: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
      event_number: ${{ github.event.issue.number || github.event.pull_request.number }}
      project_number: 7
-     create-nuget-package: true 
+     create-nuget-package: true
+     major: ${{ needs.common_ci_cd_create_release_workflow.outputs.major }}
+     minor: ${{ needs.common_ci_cd_create_release_workflow.outputs.minor }}
+     patch: ${{ needs.common_ci_cd_create_release_workflow.outputs.patch }}
+     build: ${{ needs.common_ci_cd_create_release_workflow.outputs.build }}
+     revision: ${{ needs.common_ci_cd_create_release_workflow.outputs.revision }}
+     release_tag: ${{ needs.common_ci_cd_create_release_workflow.outputs.release_tag }}
