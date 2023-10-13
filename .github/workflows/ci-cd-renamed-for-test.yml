@@ -40,7 +40,6 @@ jobs:
      resource_url: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
      event_number: ${{ github.event.issue.number || github.event.pull_request.number }}
      project_number: ${{ vars.ORG_COMMON_CI_CD_BOARD_PROJECT_NUMBER }}
-     create-nuget-package: true
      major: ${{ needs.common_ci_cd_create_release_workflow.outputs.major }}
      minor: ${{ needs.common_ci_cd_create_release_workflow.outputs.minor }}
      patch: ${{ needs.common_ci_cd_create_release_workflow.outputs.patch }}
