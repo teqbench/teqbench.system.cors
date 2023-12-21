@@ -16,11 +16,6 @@ namespace TeqBench.System.Cors
     /// </summary>
     public sealed class PolicyManager
     {
-        #region Member Variables
-        private List<string> _policyNames = new List<string>();
-        private List<CorsPolicyConfig> _configuredPolicies = new List<CorsPolicyConfig>();
-        #endregion
-
         #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="PolicyManager"/> class.
@@ -46,7 +41,7 @@ namespace TeqBench.System.Cors
         /// <value>
         /// The list of policy names.
         /// </value>
-        private List<string> PolicyNames { get => _policyNames; }
+        private List<string> PolicyNames { get; } = new List<string>();
 
         /// <summary>
         /// Gets or sets the list of configured policies.
@@ -54,7 +49,7 @@ namespace TeqBench.System.Cors
         /// <value>
         /// The list of configured policies.
         /// </value>
-        private List<CorsPolicyConfig> ConfiguredPolicies { get => _configuredPolicies; set => _configuredPolicies = value; }
+        private List<CorsPolicyConfig> ConfiguredPolicies { get; set; } = new List<CorsPolicyConfig>();
         #endregion
 
         #region Public Methods

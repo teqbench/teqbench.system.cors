@@ -37,7 +37,7 @@
 		<PackOnBuild>true</PackOnBuild>
 
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<PackageOutputPath>./bin/$(Configuration)</PackageOutputPath>
+		<PackageOutputPath>../publish</PackageOutputPath>
 
 		<!-- VersionPrefix will be used by .NET to build the PackageVersion and the InformationalVersion. -->
 		<VersionPrefix>$(Major).$(Minor).$(Patch)</VersionPrefix>
@@ -64,6 +64,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+		<PackageReference Include="TeqBench.Dev.GitIgnore" Version="1.0.1" />
+		<PackageReference Include="TeqBench.Dev.EditorConfig" Version="3.0.1" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Config\" />
