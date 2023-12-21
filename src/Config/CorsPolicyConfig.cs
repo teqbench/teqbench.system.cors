@@ -9,9 +9,9 @@ namespace TeqBench.System.Cors.Config
     internal class CorsPolicyConfig : ICorsPolicyConfig
     {
         #region Member Variables
-        private List<string> _allowedOrigins = new List<string>();
-        private List<string> _allowedHeaders = new List<string>();
-        private List<string> _allowedMethods = new List<string>();
+        private List<string> _allowedOrigins = new();
+        private List<string> _allowedHeaders = new();
+        private List<string> _allowedMethods = new();
         #endregion
 
         #region Public Properties
@@ -92,7 +92,7 @@ namespace TeqBench.System.Cors.Config
         /// <value>
         ///   <c>true</c> allowed credentials; otherwise, <c>false</c>.
         /// </value>
-        public bool AllowCredentials { get; set; } 
+        public bool AllowCredentials { get; set; }
         #endregion
     }
 }

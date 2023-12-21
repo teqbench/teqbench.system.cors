@@ -1,11 +1,10 @@
 ﻿namespace TeqBench.System.Cors.Tests;
 
 [TestClass]
-public class UnitTest1
+public class CorsPolicyConfigTests
 {
     [TestMethod]
-    public void TestMethod1()
+    public void TestPropertyDefaults()
     {
     }
 }
-

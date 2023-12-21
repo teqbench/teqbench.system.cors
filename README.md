@@ -27,6 +27,8 @@ Browser security prevents a web page from making requests to a different domain 
 
 - Microsoft.AspNetCore.Cors, 2.2.0
 - Microsoft.Extensions.Configuration.Binder, 8.0.0
+- TeqBench.Dev.EditorConfig, 3.0.1
+- TeqBench.Dev.GitIgnore, 1.0.1
 
 # Usage
 ## Add NuGet Package To Project
@@ -145,7 +147,7 @@ public class Startup
     - Open terminal.
     - Navigate to the project's root folder and issue the command "dotnet pack -c:Debug"
   - Pack Output
-    - Pack command output for Visual Studio or command line, i.e. NuGet package file ".0.0.0-dev.nupkg", will be found in the "{project}/bin/Debug/" folder.
+    - Pack command output for Visual Studio or command line, i.e. NuGet package file ".0.0.0-dev.nupkg", will be found in the "{solution}/publish" folder.
     - Because used the "Debug" configuration, the NuGet package version created is "0.0.0-dev" to communicate this is a NON-PRODUCTION build/package and should only be used for development/debug purposes; it should NEVER be uploaded to the TeqBench organization's package registry on GitHub.
    
 ### Deployment
