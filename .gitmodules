@@ -1,0 +1,3 @@
+[submodule ".submodules/teqbench.dev"]
+	path = .submodules/teqbench.dev
+	url = https://github.com/teqbench/teqbench.dev.git
