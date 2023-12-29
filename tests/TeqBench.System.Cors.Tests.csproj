@@ -1,20 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+	<!--
+	Import common project file settings via teqbench.dev submodule.
+	NOTE: Test project does NOT reference packaging or versioning prop files.
+	-->
+	<Import Project="../.submodules/teqbench.dev/TeqBench.Dev.Project.Config.props" />
+	<Import Project="../.submodules/teqbench.dev/TeqBench.Dev.Test.Project.Config.props" />
+	<Import Project="../.submodules/teqbench.dev/TeqBench.Dev.Test.Coverage.props" />
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
-    <ReleaseVersion></ReleaseVersion>
-  </PropertyGroup>
-
+	<PropertyGroup>
+	  <ReleaseVersion></ReleaseVersion>
+	</PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
