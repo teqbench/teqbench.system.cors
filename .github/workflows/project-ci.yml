@@ -35,5 +35,5 @@ on:
 jobs:
   ci:
     name: CI
-    uses: teqbench/ci-cd-workflows/.github/workflows/ci.yml@refactor/eval_build_status
+    uses: teqbench/ci-cd-workflows/.github/workflows/ci.yml@main
     secrets: inherit
