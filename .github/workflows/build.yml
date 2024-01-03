@@ -1,0 +1,11 @@
+name: Build
+# TeqBench - CI Workflow - Manually initiate a CI workflow.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: CI
+    uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/ci.yml@main
+    secrets: inherit
