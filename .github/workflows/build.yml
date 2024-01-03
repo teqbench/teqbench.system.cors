@@ -9,3 +9,5 @@ jobs:
     name: CI
     uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/ci.yml@main
     secrets: inherit
+    with:
+      ci_type: 'build-manual'
