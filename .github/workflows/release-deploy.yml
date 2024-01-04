@@ -1,0 +1,23 @@
+name: Release & Deploy
+# TeqBench - Release & Deploy Workflow - Manually initiate a release and deployment workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        type: choice
+        description: Release Type
+        options: 
+        - MAJOR
+        - MINOR
+        - PATCH
+
+jobs:
+  ci:
+    name: CI
+    uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/ci.yml@main
+    secrets: inherit
+    with:
+      ci_type: 'build-release-deploy'
+      release_type: ${{ github.event.inputs.release_type }}
+    
