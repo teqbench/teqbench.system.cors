@@ -4,20 +4,34 @@ name: Release & Deploy
 on:
   workflow_dispatch:
     inputs:
+      # This not the most optimal solution, however, as of 1/4/24, no (apparent) way to share common workflow display input.
+      # So, this is extra code to copy/paste into other repo workflow files. Revisit at a later time to improve; maybe use GitHub project
+      # boards/tickets to initiate a release/deployment, no clear option yet.
       release_type:
         type: choice
         description: Release Type
-        options: 
+        options:
         - MAJOR
         - MINOR
         - PATCH
 
 jobs:
-  ci:
-    name: CI
-    uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/ci.yml@main
+  # This not the most optimal solution, however, as of 1/4/24, cannot limit the workflow_dispatch to a specific branch via the UI.
+  # Also, this is extra code to copy/paste into other repo workflow files. Revisit at a later time to improve.
+  validate-dispatch-inputs:
+    name: Validate Dispatch Inputs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Validate Main Branch Selection
+      if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
+      run: |
+        echo "This workflow can only be initiated using the 'main' branch."
+        exit 1
+
+  release_deploy:
+    name: Release & Deploy
+    needs: validate-dispatch-inputs
+    uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/release-deploy.yml@main
     secrets: inherit
     with:
-      ci_type: 'build-release-deploy'
       release_type: ${{ github.event.inputs.release_type }}
-    

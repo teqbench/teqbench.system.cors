@@ -2,7 +2,7 @@ name: CI
 # TeqBench - CI Workflow - PR merge initiates a CI workflow.
 
 on:
-  pull_request:    
+  pull_request:
     types: [closed]
     branches:
       - main
@@ -10,5 +10,5 @@ on:
 jobs:
   ci:
     name: CI
-    uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/ci.yml@main
+    uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/build-with-concurrency.yml@main
     secrets: inherit
