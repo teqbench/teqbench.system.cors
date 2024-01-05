@@ -8,7 +8,7 @@ jobs:
   # This not the most optimal solution, however, as of 1/4/24, cannot limit the workflow_dispatch to a specific branch via the UI.
   # Also, this is extra code to copy/paste into other repo workflow files. Revisit at a later time to improve.
   validate-dispatch-inputs:
-    name: Validate Dispatch Inputs
+    name: Validate Dispatch Inputs Job
     runs-on: ubuntu-latest
     steps:
     - name: Validate Main Branch Selection
