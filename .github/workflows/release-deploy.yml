@@ -1,4 +1,4 @@
-name: Release & Deploy
+name: Project Release & Deploy Workflow
 # TeqBench - Release & Deploy Workflow - Manually initiate a release and deployment workflow.
 
 on:
@@ -19,7 +19,7 @@ jobs:
   # This not the most optimal solution, however, as of 1/4/24, cannot limit the workflow_dispatch to a specific branch via the UI.
   # Also, this is extra code to copy/paste into other repo workflow files. Revisit at a later time to improve.
   validate-dispatch-inputs:
-    name: Validate Dispatch Inputs
+    name: Validate Dispatch Inputs Job
     runs-on: ubuntu-latest
     steps:
     - name: Validate Main Branch Selection
@@ -29,7 +29,7 @@ jobs:
         exit 1
 
   release_deploy:
-    name: Release & Deploy
+    name: Release & Deploy Job
     needs: validate-dispatch-inputs
     uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/release-deploy.yml@main
     secrets: inherit
