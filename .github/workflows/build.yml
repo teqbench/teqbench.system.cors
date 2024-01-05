@@ -1,4 +1,4 @@
-name: Build
+name: Project Build Workflow
 # TeqBench - CI Workflow - Manually initiate a CI workflow.
 
 on:
@@ -18,7 +18,7 @@ jobs:
         exit 1
 
   build:
-    name: Build
+    name: Build Job
     needs: validate-dispatch-inputs
     uses: teqbench/teqbench.devops.githhub.workflows/.github/workflows/build-with-concurrency.yml@main
     secrets: inherit
