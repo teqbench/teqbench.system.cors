@@ -7,23 +7,23 @@ The TeqBench System Cors (Cross Origin Request) policy management library (NuGet
 
 Browser security prevents a web page from making requests to a different domain than the one that served the web page. This restriction is called the same-origin policy. The same-origin policy prevents a malicious site from reading sensitive data from another site. Sometimes, you might want to allow other sites to make cross-origin requests to your app. For further background, see [references](#References).
 
-# Contents
+## Contents
 - [Developer Environment Setup](#Developer+Environment+Setup)
 - [Usage](#Usage)
 - [DevOps - Configurations, Builds and Deployments](#DevOps)
 - [References](#References)
 - [License](#License)
 
-# Developer Environment Setup
+## Developer Environment Setup
 > [!NOTE]
 > In order to access the TeqBench's package registry on GitHub, a personal access token needs to be created with the appropriate scopes and Visual Studio configured to use it. See the [TeqBench Organization's README](https://github.com/teqbench) which outlines how to create a PAT and configure Visual Studio to use it.
 
-## Tooling
+### Tooling
 - Visual Studio
 - .NET 8.0.x
     - In the Visual Studio, navigate to Preferences > Other > Preview Features to enable using the .NET 8 SDK, i.e. check the checkbox for the option `Use the NET 8 SDK if installed (requires restart)`.
 
-## Dependencies
+### Dependencies
 > [!NOTE]
 > Referenced/restored via the project file
 
