@@ -16,11 +16,10 @@ Browser security prevents a web page from making requests to a different domain 
 ## Developer Environment Setup
 
 ### General
-
-- [Branching Strategy](https://github.com/teqbench/teqbench.docs/wiki/Branching-Strategy)
+- [Branching Strategy & Practices](https://github.com/teqbench/teqbench.docs/wiki/Branching-Strategy)
 
 ### .NET
-- [Tooling](https://github.com/teqbench/teqbench.docs/wiki/.NET-General-Tooling)
+- [General Tooling](https://github.com/teqbench/teqbench.docs/wiki/.NET-General-Tooling)
 - [Configurations](https://github.com/teqbench/teqbench.docs/wiki/.NET-Configuration-Standards)
 - [Coding Standards](https://github.com/teqbench/teqbench.docs/wiki/.NET-Coding-Standards)
 - [Solutions](https://github.com/teqbench/teqbench.docs/wiki/.NET-Solutions)
@@ -116,6 +115,6 @@ public class Startup
 - [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) - Mozilla
 - [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) - Wikipedia
 
-## License
+## Licensing
 
 [License](https://github.com/teqbench/teqbench.docs/wiki/License)
