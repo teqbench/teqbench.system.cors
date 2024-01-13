@@ -24,7 +24,8 @@ Browser security prevents a web page from making requests to a different domain 
 - [Coding Standards](https://github.com/teqbench/teqbench.docs/wiki/.NET-Coding-Standards)
 - [Solutions](https://github.com/teqbench/teqbench.docs/wiki/.NET-Solutions)
 - [Projects](https://github.com/teqbench/teqbench.docs/wiki/.NET-Projects)
-- [Building, Packing & Deploying](https://github.com/teqbench/teqbench.docs/wiki/.NET-Build-Process)
+- [Building](https://github.com/teqbench/teqbench.docs/wiki/.NET-Build-Process)
+- [Packing & Deploying NuGet Package](#)
 - [Versioning](https://github.com/teqbench/teqbench.docs/wiki/.NET-Versioning-Standards)
 
 ## Usage
