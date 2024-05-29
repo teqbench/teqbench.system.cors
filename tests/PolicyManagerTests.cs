@@ -60,7 +60,7 @@ public class PolicyManagerTests
     [ExpectedException(typeof(ArgumentException))]
     public void TestConstructor3()
     {
-        PolicyManager policyManager = new(this._configuration, null);
+        PolicyManager policyManager = new(this._configuration, null!);
     }
 
     [TestMethod]

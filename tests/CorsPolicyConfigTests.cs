@@ -25,7 +25,7 @@ public class CorsPolicyConfigTests
         Assert.IsTrue(config.AllowedOrigins.Count == 0);
 
         // Try assigning null
-        config.AllowedOrigins = null;
+        config.AllowedOrigins = null!;
         Assert.IsNotNull(config.AllowedOrigins);
         Assert.IsTrue(config.AllowedOrigins.Count == 0);
 
@@ -45,7 +45,7 @@ public class CorsPolicyConfigTests
         Assert.IsTrue(config.AllowedHeaders.Count == 0);
 
         // Try assigning null
-        config.AllowedHeaders = null;
+        config.AllowedHeaders = null!;
         Assert.IsNotNull(config.AllowedHeaders);
         Assert.IsTrue(config.AllowedHeaders.Count == 0);
 
@@ -65,7 +65,7 @@ public class CorsPolicyConfigTests
         Assert.IsTrue(config.AllowedMethods.Count == 0);
 
         // Try assigning null
-        config.AllowedMethods = null;
+        config.AllowedMethods = null!;
         Assert.IsNotNull(config.AllowedMethods);
         Assert.IsTrue(config.AllowedMethods.Count == 0);
 
